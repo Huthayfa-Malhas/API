@@ -378,7 +378,6 @@ ul.subnav {
                 <img src="/dragonfly/images/octocat.png" /> <a href="https://github.com/markevans/dragonfly">GitHub Repository</a>
               </p> -->
             </div>
-
             <div class="primary-nav">
                 <ul>
                     <li>
@@ -399,6 +398,26 @@ ul.subnav {
 
                             <li>
                                 <a href="#auth">Authentication</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#countries">Countries</a>
+
+                        <ul class="subnav">
+                            <li>
+                                <a href="#countries_list">Countries List</a>
+                            </li>
+
+                            <li>
+                                <a href="#country_info">Country Information</a>
+                            </li>
+                            <li>
+                                <a href="#country_cities">Country Cities</a>
+                            </li>
+                            <li>
+                                <a href="#country_hotels">Country Hotels</a>
                             </li>
                         </ul>
                     </li>
@@ -536,6 +555,220 @@ ul.subnav {
                 </div>
             </section>
 
+            <section>
+                <h1 id="countries">Countries</h1>
+                <h3 class="text-muted" id="countries_list">Countries List</h3>
+                <p>Returns a list of all countries available via Yamsafer and other business partners</p>
+                <h4><i>Example</i></h4> 
+                    <pre>https://www.yamsafer.me/api/v2/countries?API_KEY=uAo5kiMyvayceXXDm1dJ6Hx9&lang=ar&limit=10&page=0
+                    </pre>
+                <h4><i>Request</i></h4> 
+                <div class="highlight">
+                    <pre>
+                        <table>
+                            <tr>
+                                <th class="no">Parameter</th>
+
+                                <th class="no">Default</th>
+
+                                <th class="no">Required</th>
+
+                                <th class="no">Description</th>
+                            </tr>
+
+                            <tr>
+                                <td class="s1">lang</td>
+
+                                <td>en</td>
+
+                                <td>No</td>
+
+                                <td>Language of the results returned</td>
+                            </tr>
+                            <tr>
+                                <td class="s1">limit</td>
+
+                                <td>10</td>
+
+                                <td>No</td>
+
+                                <td>Number of countries per request</td>
+                            </tr>
+                            <tr>
+                                <td class="s1">page</td>
+
+                                <td>0 (zero)</td>
+
+                                <td>No</td>
+
+                                <td>Offset to start from equivalent to the offset query </br>parameter in SQL This parameter will decide at which country to start.</td>
+                            </tr>
+                        </table>
+                    </pre> 
+                    <h4  id="country_response"><i>Response</i></h4> 
+                    <p>Returns a list of country objects</p>
+                    <div class="highlight">
+                    <pre>
+                        <table>
+                            <tr>
+                                <th class="no">Name</th>
+
+                                <th class="no">Type</th>
+
+                                <th class="no">Description</th>
+                            </tr>
+
+                            <tr>
+                                <td class="s1">country_id</td>
+
+                                <td>Integer</td>
+
+                                <td>ID for the property. This same ID will be used in any subsequent </br>availability requests or hotel info</td>
+                            </tr>
+                            <tr>
+                                <td class="s1">country_name</td>
+
+                                <td>String</td>
+
+                                <td>Name of the country</td>
+
+                            </tr>
+                            <tr>
+                                <td class="s1">code</td>
+
+                                <td>String</td>
+
+                                <td>Country code</td>
+
+                            </tr>
+                        </table>
+                    </pre> 
+                    
+                </div>
+                </div>
+                <h3 id="country_info">Country Information</h3>
+                <p>Returns the countries information object.</p>
+                <h4><i>Example</i></h4> 
+                    <pre>https://www.yamsafer.me/api/v2/countries/{country_id}?API_KEY=uAo5kiMyvayceXXDm1dJ6Hx9&lang=ar&limit=10&page=0
+                    </pre>
+                <h4><i>Request</i></h4>
+                <div class="highlight">
+                    <pre>
+                        <table>
+                            <tr>
+                                <th class="no">Parameter</th>
+
+                                <th class="no">Default</th>
+
+                                <th class="no">Required</th>
+
+                                <th class="no">Description</th>
+                            </tr>
+                            <tr>
+                                <td class="s1">country_id</td>
+
+                                <td>--</td>
+
+                                <td>Yes</td>
+
+                                <td>Country ID for the requested country </td>
+                            </tr>
+                            <tr>
+                                <td class="s1">lang</td>
+
+                                <td>"en"</td>
+
+                                <td>No</td>
+
+                                <td>Results language</td>
+                            </tr>
+                        </table>
+                    </pre> 
+                    <h4><i><a href="#country_response">See Country Response</a></i></h4> 
+                </div>
+                <h3 id="country_cities">Country Cities</h3>
+                <p>Cities in a given country.</p>
+                <h4><i>Example</i></h4> 
+                    <pre>https://www.yamsafer.me/api/v2/countries/{country_id}/cities?API_KEY=uAo5kiMyvayceXXDm1dJ6Hx9&lang=ar&limit=10&page=0
+                    </pre>
+                <h4><i>Request</i></h4>
+                <div class="highlight">
+                    <pre>
+                        <table>
+                            <tr>
+                                <th class="no">Parameter</th>
+
+                                <th class="no">Default</th>
+
+                                <th class="no">Required</th>
+
+                                <th class="no">Description</th>
+                            </tr>
+                            <tr>
+                                <td class="s1">country_id</td>
+
+                                <td>--</td>
+
+                                <td>Yes</td>
+
+                                <td>Country ID for the requested country </td>
+                            </tr>
+                            <tr>
+                                <td class="s1">lang</td>
+
+                                <td>"en"</td>
+
+                                <td>No</td>
+
+                                <td>Results language</td>
+                            </tr>
+                        </table>
+                    </pre> 
+                    <h4><i><a href="#city_response">See City Response</a></i></h4> 
+                </div>
+                 <h3 id="country_hotels">Country Hotels</h3>
+                <p>Hotels in a given country.</p>
+                <h4><i>Example</i></h4> 
+                    <pre>https://www.yamsafer.me/api/v2/countries/{country_id}/hotels?API_KEY=uAo5kiMyvayceXXDm1dJ6Hx9&lang=ar&limit=10&page=0
+                    </pre>
+                <h4><i>Request</i></h4>
+                <div class="highlight">
+                    <pre>
+                        <table>
+                            <tr>
+                                <th class="no">Parameter</th>
+
+                                <th class="no">Default</th>
+
+                                <th class="no">Required</th>
+
+                                <th class="no">Description</th>
+                            </tr>
+                            <tr>
+                                <td class="s1">country_id</td>
+
+                                <td>--</td>
+
+                                <td>Yes</td>
+
+                                <td>Country ID for the requested country </td>
+                            </tr>
+                            <tr>
+                                <td class="s1">lang</td>
+
+                                <td>"en"</td>
+
+                                <td>No</td>
+
+                                <td>Results language</td>
+                            </tr>
+                        </table>
+                    </pre> 
+                    <h4><i><a href="#hotel_response">See Hotel Response</a></i></h4> 
+
+                </div>
+            </section>
+            
             <section>
                 <h1 id="hotels">Hotels</h1>
                 <h3 class="text-muted" id="hotels_list">Hotels List</h3>
@@ -889,7 +1122,7 @@ ul.subnav {
                         </table>
                     </pre>
                 </div>
-                <h4><i>Response</i></h4> 
+                <h4 id='city_response'><i>Response</i></h4> 
                 <p>Requested city object in the language requested</p>
                 <div class="highlight">
                     <pre>
